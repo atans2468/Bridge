@@ -1,0 +1,205 @@
+<ion-view view-title="Home">
+  <ion-nav-buttons side="right">
+    <a ng-controller="PostCtrl" ng-click="openModal()">    
+      <button class="button button-icon button-clear ion-compose" style="color: #000000;">
+      </button>
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+
+    <!-- Bieber -->
+    <div class="list card">
+      
+      <div class="item item-avatar item-icon-right">
+        <img src="https://pbs.twimg.com/profile_images/415917193814372352/HiEKWGSW.jpeg" ui-sref="app.postDetails">
+        <h2 ui-sref="app.postDetails">Justin Bieber</h2>
+        <p ui-sref="app.postDetails">- 4 Hours Left</p>
+        <div ng-hide="watchEnabled" ng-click="watchEnabled=!watchEnabled">
+          <i class="icon ion-eye"></i>
+        </div>
+        <div ng-show="watchEnabled" ng-click="watchEnabled=!watchEnabled">
+          <i class="icon ion-checkmark-round balanced"></i>
+        </div>
+      </div>
+    
+      <div class="item item-image" ui-sref="app.postDetails">
+        <img src="http://media.hollywood.com/images/638x425/5743320.jpg" style="height: 250px;">
+      </div>
+    
+      <div class="row" style="width: 100%;" ui-sref="app.postDetails">
+        <div class="col-2 item item-icon-left" style="border: none;">
+          <a style="text-decoration: none; color: #000000;" ng-controller="BidCtrl">
+            <i class="icon ion-cash balanced"></i>
+            Bid Now
+          </a>
+        </div>
+        <div class="col" style="text-align: right; font-size: 16px; margin: auto; border: none;">
+          $200
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Gomez
+    <div class="list card">
+
+      <div class="item item-avatar item-icon-right">
+        <img src="http://www.prettydesigns.com/wp-content/uploads/2013/11/Selena-Gomez-Hairstyles_-Adorable-Ponytail.jpg" ui-sref="app.postDetails">
+        <h2 ui-sref="app.postDetails">Selena Gomez</h2>
+        <p ui-sref="app.postDetails">- 24 Hours Left</p>
+        <div ng-hide="editorEnabled" ng-click="editorEnabled=!editorEnabled">
+          <i class="icon ion-eye"></i>
+        </div>
+        <div ng-show="editorEnabled" ng-click="editorEnabled=!editorEnabled">
+          <i class="icon ion-checkmark-round balanced"></i>
+        </div>
+      </div>
+    
+      <div class="item item-image" ui-sref="app.postDetails">
+        <img src="http://media4.popsugar-assets.com/files/2015/08/27/684/n/1922398/a6519fb9_edit_img_cover_file_16360412_1440688460_GettyImages-48Xm5HMK.xxxlarge/i/Selena-Gomez-Stage-Taylor-Swift-1989-Tour.jpg">
+      </div>
+    
+      <div class="row" style="width: 100%;">
+        <div class="col-2 item item-icon-left" style="border: none;">
+          <a href="#" style="text-decoration: none; color: #000000;">
+            <i class="icon ion-cash balanced"></i>
+            Bid Now
+          </a>
+        </div>
+        <div class="col" style="text-align: right; font-size: 16px; margin: auto; border: none;" ui-sref="app.postDetails">
+          $100
+        </div>
+      </div>
+    
+    </div> -->
+    
+    <!-- Kim K.
+    <div class="list card">
+
+      <div class="item item-avatar item-icon-right">
+        <img src="http://www.rouge18.com/wp-content/uploads/2015/02/kim-kardashian-grammys-2015-photo.jpg" ui-sref="app.postDetails">
+        <h2 ui-sref="app.postDetails">Kim Kardashian</h2>
+        <p ui-sref="app.postDetails">- 1 Hour Left</p>
+        <div ng-hide="testEnabled" ng-click="testEnabled=!testEnabled">
+          <i class="icon ion-eye"></i>
+        </div>
+        <div ng-show="testEnabled" ng-click="testEnabled=!testEnabled">
+          <i class="icon ion-checkmark-round balanced"></i>
+        </div>
+      </div>
+    
+      <div class="item item-image" ui-sref="app.postDetails">
+        <img src="http://www.eonline.com/eol_images/Entire_Site/2014511/rs_1024x721-140611145642-1024-3kimye-wedding-kanye-west-kim-kardashian-jenner-ls.61014.jpg">
+      </div>
+    
+      <div class="row" style="width: 100%;">
+        <div class="col-2 item item-icon-left" style="border: none;">
+          <a href="#" style="text-decoration: none; color: #000000;">
+            <i class="icon ion-cash balanced"></i>
+            Bid Now
+          </a>
+        </div>
+        <div class="col" style="text-align: right; font-size: 16px; margin: auto; border: none;" ui-sref="app.postDetails">
+          $20000
+        </div>
+      </div>-->
+        
+      
+    
+    </div>
+    
+    <script id="post-modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar>
+          <div style="margin-left: 5px">
+            <button class="button button-small button-clear" style="color: #000000; font-size: 16px;" ng-click="closeModal();">
+              Cancel
+            </button>
+          </div>
+          <h1 class="title">Post</h1>
+        </ion-header-bar>
+        <ion-content>
+          <form class="list" name="postForm" method="POST" ng-controller="addController">
+            
+            <div class="item item-image" ng-model="postImage" style="width: 100%; height: 250px; border-right: none; border-left: none;" ng-controller="actionCtrl" ng-click="show()">
+            <p style="margin: 25% auto;">Click here to add a photo</p>
+            </div>
+            
+            <div>
+              <label class="item item-input item-select" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+                <div class="input-label" style="color: #000000;">Auction Type:</div>
+                <select ng-model="auctionType" style="background-color: transparent;">
+                  <option value="" disabled selected>Select</option>
+                  <option value="raffle">Raffle</option>
+                  <option value="buy-in">Buy-In</option>
+                  <option value="one-one">One On One</option>
+                  <option value="exclusive">Exclusive</option>
+                </select>
+              </label>
+            </div>
+            
+            <div>
+              <label class="item item-input item-select" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+                <div class="input-label" style="color: #000000;">Bridge Type:</div>
+                <select ng-model="bridgeType" style="background-color: transparent;">
+                  <option value="" disabled selected>Select</option>
+                  <option value="video">Video Chat</option>
+                  <option value="message">Private Message</option>
+                  <option value="phone">Phone Call</option>
+                </select>
+              </label>
+            </div>
+            
+            <label class="item item-input" style="border-left: none; border-right: none;">
+              <div class="row">
+                <div class="col-25 input-label">
+                  Min Bid:
+                </div>
+                <div class="col-75">
+                  <input type="number" placeholder="Min" ng-model="bidMin" style="background-color: transparent;">
+                </div>
+              </div>
+            </label>
+            
+            <label class="item item-input" style="border-left: none; border-right: none;" ng-controller="dateCtrl">
+              <div class="row">
+                <div class="col-25 input-label">
+                  Start Date:
+                </div>
+                <div class="col-50" style="margin-right: 2%;">
+                  <label class="item">
+                  </label>
+                </div>
+                <div class="col-25">
+                  <ionic-datepicker input-obj="datepickerObject">
+                    <button class="button button-small button-positive">Select Date</button>
+                  </ionic-datepicker>
+                </div>
+              </div>
+            </label>
+            <label class="item item-input" style="border-top: none;" ng-controller="dateCtrl">
+              <div class="row">
+                <div class="col-25 input-label">
+                  End Date:
+                </div>
+                <div class="col-50" style="margin-right: 2%;">
+                  <label class="item">
+                  </label><!-- change this to <p> tag -->
+                </div>
+                <div class="col-25">
+                  <ionic-datepicker input-obj="datepickerObject">
+                    <button class="button button-small button-positive">Select Date</button>
+                  </ionic-datepicker>
+                </div>
+              </div>
+            </label>
+            
+            <div class="item button button-block button-positive" ng-model="addButton" ng-disabled="!auctionType||!bridgeType||!bidMin" ng-click="submitPost(); closeModal(); reset()">
+            Post
+            </div>
+          </form>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+  </ion-content>
+</ion-view>

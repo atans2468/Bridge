@@ -1,0 +1,49 @@
+<ion-view view-title="Account Settings">
+  <ion-content class="myContent">
+    <div class="list card" style="width: 100%; margin:0px;">
+      
+	  <!-- Change Password -->
+	  <div class="item item-divider" style="padding-top: 0px; background-color: #D3D3D3;">
+        Change Password:
+      </div>
+      
+        <label class="item item-input" style="border-left: none; border-right: none;">
+          <input type="text" placeholder="Email" ng-model="username">
+        </label>
+        
+        <label class="item item-input" style="border-left: none; border-right: none;">
+          <input type="password" placeholder="Password" ng-model="password">
+        </label>
+        
+        <label class="item item-input" style="border-left: none; border-right: none;">
+          <input type="password" placeholder="Confirm Password" ng-model="confirmPass">
+        </label>
+		
+	  <!-- PayPal -->
+	  <div class="item item-divider" style="padding-top: 0px; background-color: #D3D3D3;">
+        Paypal:
+      </div>
+      
+        <label class="item item-input" style="border-left: none; border-right: none;">
+          <input type="text" placeholder="PayPal Email" ng-model="username">
+        </label>
+		
+      	<!-- Facebook and Google Logins
+        <div class="button-bar" style="margin-top: 5%; margin-bottom: 5%;">
+          <a class="button button-positive" style="margin-left: 5px; margin-right: 5px; border-radius: 5px;">Facebook</a>
+          <a class="button button-assertive" style="margin-left: 5px; margin-right: 5px; border-radius: 5px;">Google</a>
+        </div> -->
+      
+
+      
+      <div class="item item-divider">
+      </div>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-power" style="color: #ff3823;" ng-click="ref.unauth(); logout()"></i>
+        Logout
+      </a>
+      
+    </div>
+    
+  </ion-content>
+</ion-view>
