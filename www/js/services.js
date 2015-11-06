@@ -2,7 +2,7 @@ var bridge = angular.module('bridge.services', [])
 
 //Post Service
 bridge.factory('postService', function($firebaseArray) {
-	var fb = new Firebase("https://bridgeapps.firebaseio.com/posts");
+	var fb = new Firebase("https://bridgeapps.firebaseio.com/");
 	var posts = $firebaseArray(fb);
 	var postService= {
 		all: posts,
