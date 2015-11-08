@@ -112,7 +112,14 @@ angular.module('starter', ['bridge.controllers','bridge.services', 'ionic', 'ion
       }
     }
   })
-
+  .state('app.celebprofile', {
+    url: '/celebprofile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/celebprofile.html'
+      }
+    }
+  })
   .state('app.profile', {
       url: '/profile',
       views: {

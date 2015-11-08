@@ -7,7 +7,7 @@
     
     <div class="list" style="margin-top: -30%; background-color: transparent;">
       <div class="item item-image" style="border: none; margin-top: 0px; margin-bottom: 3%; text-align: center; background-color: transparent;">
-        <img src="https://scontent.fsan1-2.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/12096362_10153934774793888_1372203077918095310_n.jpg?oh=0cb2463c621e5b24cd7e67bb250144a1&oe=56FAF82E" style="width: 150px; height: 150px; border-radius: 10px; border: .2em solid white; margin-bottom: 2%;">
+        <img src="https://scontent.fsan1-2.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/12096362_10153934774793888_1372203077918095310_n.jpg?oh=0cb2463c621e5b24cd7e67bb250144a1&oe=56FAF82E" style="width: 150px; height: 150px; border-radius: 10px; border: .2em solid white; margin-bottom: 2%;" ui-sref="app.celebprofile">
         <h2>Justin Bieber</h2>
       </div>
     
@@ -22,10 +22,10 @@
       
       <div class="item item-body" style="border: none;">
         <strong>Current Bid:</strong>
-        <div class="list">
+        <div class="list" ng-controller="BidCtrl">
           <div class="row" style="width: 100%;">
             <div class="col-2 item item-icon-left" style="border: none;">
-              <a style="text-decoration: none; color: #000000;" ng-click="bidNow" ng-controller="BidCtrl">
+              <a style="text-decoration: none; color: #000000;" ng-click="showPopup()">
                 <i class="icon ion-cash balanced"></i>
                 Bid Now
               </a>
