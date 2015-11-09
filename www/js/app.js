@@ -56,6 +56,38 @@ angular.module('starter', ['bridge.controllers','bridge.services', 'ionic', 'ion
       }
     }
   })
+    .state('app.charts', {
+    url: '/charts',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/charts.html'
+      }
+    }
+  })
+    .state('app.topCategory', {
+    url: '/topCategory',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/topCategory.html'
+      }
+    }
+  })
+    .state('app.newest', {
+    url: '/newest',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/newest.html'
+      }
+    }
+  })
+    .state('app.mostRecent', {
+    url: '/mostRecent',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/mostRecent.html'
+      }
+    }
+  })
   .state('app.categories', {
     url: '/categories',
     views: {

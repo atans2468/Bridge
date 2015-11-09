@@ -5,9 +5,11 @@ bridge.controller("ClickToEditCtrl", function($scope) {
   $scope.title = "";
 });
 
+//App Controller (No use right now)
 bridge.controller('AppCtrl', function($scope) {
 
 });
+
 
 //Bid Now Controller
 bridge.controller('BidCtrl',function($scope, $ionicPopup, $timeout) {
@@ -43,33 +45,36 @@ $scope.showPopup = function() {
   });
   $timeout(function() {
      myPopup.close(); //close the popup after 3 seconds for some reason
-  }, 3000);
+  }, 10000);
  };
- // A confirm dialog
- $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm({
-     title: 'Bid Now',
-     template: 'Are you sure you want to bid on this auction?'
-   });
-   confirmPopup.then(function(res) {
-     if(res) {
-       console.log('Bid Now');
-     } else {
-       console.log('Cancel');
-     }
-   });
- };
+});
 
- // An alert dialog
- $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: 'Don\'t eat that!',
-     template: 'It might taste good'
-   });
-   alertPopup.then(function(res) {
-     console.log('Thank you for not eating my delicious ice cream cone');
-   });
- };
+//App Controller (No use right now)
+bridge.controller('subscribeCtrl', function($scope, $ionicModal) {
+  $ionicModal.fromTemplateUrl('subscribe-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
 });
 
 //Compose a Post Controller
@@ -106,7 +111,7 @@ bridge.controller('addController',function($scope,$firebaseArray, $state, postSe
 	};
 });
 
-//Submit post controller
+//Date Selector controller
 bridge.controller('dateCtrl',function($scope){
   $scope.datepickerObject = {
       titleLabel: 'Bidding Dates',  //Optional
@@ -137,6 +142,7 @@ bridge.controller('dateCtrl',function($scope){
     };
 });
 
+//This is the action screen controller (after clicking add photo box, this pops up the bottom quarter screen)
 bridge.controller('actionCtrl', function($scope, $ionicActionSheet, $timeout) {
 
  // Triggered on a button click, or some other target
